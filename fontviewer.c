@@ -21,6 +21,12 @@ char* lines[] = {
 	"0123456789"
 };
 
+int
+strpcmp(const void *a, const void *b)
+{
+	return strcmp(*(char**)a, *(char**)b);
+}
+
 char**
 familynames(void)
 {
@@ -39,6 +45,7 @@ familynames(void)
 			f[j++] = strdup(d[i].name);
 	}
 	f[j] = nil;
+	qsort(f, j, sizeof(f[0]), strpcmp);
 	free(d);
 	close(fd);
 	return f;
@@ -76,6 +83,7 @@ fontnames(char *family)
 			names[j++] = strdup(dir[i].name);
 	}
 	names[j] = nil;
+	qsort(names, j, sizeof(names[0]), strpcmp);
 	free(dir);
 	close(fd);
 	return names;
