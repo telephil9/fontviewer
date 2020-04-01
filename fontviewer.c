@@ -138,7 +138,7 @@ redraw(void)
 		string(screen, addpt(rfont.min, Pt(5, 5)), display->black, ZP, font, curfont);
 		f = openfont(display, smprint("/lib/font/bit/%s/%s", curfamily, curfont));
 		p.y = rfont.max.y + 20;
-		string(screen, p, display->black, ZP, f, "The quick brown fow jumps over the lazy dog");
+		string(screen, p, display->black, ZP, f, "The quick brown fox jumps over the lazy dog");
 		p.y += f->height + 20;
 		for(i = 0; i < 7; i++){
 			string(screen, p, display->black, ZP, f, lines[i]);
